@@ -1,5 +1,8 @@
 *eugene_logs/
 *eugene_output/
+otxa_enhancer_grammar/
+plant_enhancer_syntax/
+er_stress_regulation/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
