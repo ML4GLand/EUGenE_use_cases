@@ -1,4 +1,4 @@
-# ML4GLand use cases
+# Use cases
 
 This repository contains individual folders that represent an attempt reproduce foundational research in machine learning for genomics.
 
