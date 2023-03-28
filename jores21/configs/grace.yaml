@@ -1,15 +1,10 @@
 model:
+  arch: "Hybrid"
+  name: "grace"
   input_len: 170
   output_dim: 1
-  strand: "ss"
   task: "regression"
   loss_fxn: "mse"
-  aggr: None
-  optimizer_lr: 0.001
-  optimizer: adam
-  scheduler: reduce_lr_on_plateau
-  scheduler_kwargs:
-    patience: 2
   conv_kwargs:
     conv_channels: [256, 256, 256]
     conv_kernels: [13, 13, 13]
@@ -25,3 +20,8 @@ model:
     hidden_dims: [64]
     dropout_rates: 0.2
     batchnorm: True
+  optimizer_lr: 0.001
+  optimizer: adam
+  scheduler: reduce_lr_on_plateau
+  scheduler_kwargs:
+    patience: 2
