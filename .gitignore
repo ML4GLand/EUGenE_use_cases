@@ -1,12 +1,15 @@
+# General EUGENe files
 **/eugene_logs/
 **/eugene_output/
 **/eugene_data/
 **/data/
 **/models/
-otxa_enhancer_grammar/
+
+# use cases to ignore
 plant_enhancer_syntax/
 er_stress_regulation/
 tcr_duality/
+stamp_bpnet/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
