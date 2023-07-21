@@ -24,7 +24,6 @@ Coming soon!
 ## Acknowledgements
 ---
 - Jacob Schreiber: https://github.com/jmschrei/bpnet-lite
-- Peter Koo: https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02941-w
 - Kipoi team: https://kipoi.org/
 
 ## TODO
