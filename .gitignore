@@ -4,6 +4,7 @@
 **/eugene_data/
 **/data/
 **/models/
+archive/
 
 # use cases to ignore
 plant_enhancer_syntax/
