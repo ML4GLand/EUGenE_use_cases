@@ -1,4 +1,4 @@
-# BPNet
+# scBasset
 ---
 Code to work with scBasset models. This includes:
  - Running inference on scBasset models from Han
