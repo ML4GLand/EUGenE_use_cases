@@ -1,4 +1,4 @@
-# BPNet
+# DeepMEL
 ---
 Code to work with DeepMEL models. This includes:
  - Training and interpreting BPNet models from scratch with [EUGENe].
