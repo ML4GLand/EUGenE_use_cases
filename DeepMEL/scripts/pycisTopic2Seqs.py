@@ -1,13 +1,10 @@
-import argparse
 import os
-import sys
+import argparse
 
 import numpy as np
 import pandas as pd
 import pyranges as pr
 from pycisTopic.topic_binarization import binarize_topics
-
-sys.path.append("/cellar/users/aklie/projects/ML4GLand/collabs/er_stress_regulation")
 from utils import load_cisTopic_obj
 
 

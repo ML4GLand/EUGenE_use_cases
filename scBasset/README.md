@@ -1,24 +1,25 @@
 # scBasset
 ---
-Code to work with scBasset models. This includes:
- - Running inference on scBasset models from Han
- - Training a scBasset model from scratch with [EUGENe].
- - Testing the Kipoi scBasset model
+Code to work with scBasset models. This currently includes:
+ - Preprocessing scATAC-seq datasets with code from scBasset and EUGENe
+ - Training scBasset models from scratch with scBasset and EUGENe.
 
 ## Install
 ---
-Follow the instructions in the `setup.ipynb` notebook to configure computational environments.
+Follow the instructions in the `setup.ipynb` notebook to configure computational environments and get data needed to run the notebooks.
 
 ## Usage
 ---
-1. Testing
- - See the `test_inference*.ipynb` notebooks for examples of how to use the pretrained models for inference. TODO!
-
-2. Training
- - See the `train_*.ipynb` notebooks for examples of how to train models from scratch
+1. Training scBasset models from scratch
+scBasset is a framework that can be applied to any scATAC-seq dataset. We have chosen a few particular datasets:
+- PBMC 3k multiome
+- Buenrostro 2018
+You can find numerically ordered notebooks in this directory for running the steps necessary to preprocess and train scBasset models on these datasets.
  
-## Model interpretation
----
+2. Benchmarking scBasset models
+Coming soon!
+
+3. Interpreting scBasset models
 Coming soon!
 
 ## Acknowledgements
@@ -28,9 +29,8 @@ Coming soon!
 
 ## TODO
 ---
-- [x] Get something working for loading pbmc 3k ATAC data into a EUGENe scBasset
-- [ ] Run inference with Kipoi model
-- [ ] Get Han's keras implementation working
+- [ ] Add notebooks for benchmarking scBasset models against each other
+- [ ] Add notebooks for interpreting scBasset models
 
 ## Citations
 ---

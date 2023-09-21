@@ -12,11 +12,13 @@ Follow the instructions in the `setup.ipynb` notebook to configure computational
 
 ## Usage
 ---
-1. Testing
+1. Inference
  - See the `test_inference*.ipynb` notebooks for examples of how to use the pretrained models for inference.
 
-## Fine-tuning
----
+2. Fine-tuning
+Coming soon!
+
+3. Interpretation
 Coming soon!
 
 ## Acknowledgements
@@ -27,11 +29,9 @@ Coming soon!
 
 ## TODO
 ---
-- [x] Get DL's model working for inference
-- [x] Get Kipoi's model working for inference
-- [ ] Get DRKs basenji model working
 - [ ] Notebook comparing inference across models
 - [ ] Add fine-tuning example for PyTorch
+- [ ] Add notebooks for interpreting Basenji models
 - [ ] Reproduce an analysis from Alex Karollus's paper: https://github.com/Karollus/SequenceModelBenchmark
 - [ ]
 
