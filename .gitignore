@@ -1,9 +1,11 @@
 # General EUGENe files
-**/eugene_logs/
-**/eugene_output/
-**/eugene_data/
+**/logs/
+**/output/
 **/data/
+**/data/
+**/model/
 **/models/
+**/processed/
 archive/
 
 # use cases to ignore
