@@ -8,9 +8,7 @@ from eugene import dataload as dl
 from eugene import models
 from eugene import plot as pl
 from eugene import train
-
-sys.path.append("/cellar/users/aklie/projects/ML4GLand/collabs/er_stress_regulation/scripts")
-from DeepMEL import DeepMEL
+from eugene.models.zoo import DeepMEL
 
 
 def main(args):
