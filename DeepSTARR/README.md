@@ -1,25 +1,9 @@
 # DeepSTARR
 ---
 Code to work with DeepSTARR models. This includes:
- - Training and interpreting DeepSTARR models from scratch with [EUGENe].
- - Testing the Kipoi DeepSTARR model
- - Testing Bernardo's DeepSTARR model in keras
-
-## Install
----
-Follow the instructions in the `setup.ipynb` notebook to configure computational environments.
-
-## Usage
----
-1. Training and interpreting DeepSTARR models from scratch with [EUGENe].
- - See the `eugene` directory for details
-
-2. Training
- - See the `train_*.ipynb` notebooks for examples of how to train models from scratch
- 
-## Model interpretation
----
-Coming soon!
+ - Training, evaluating and interpreting DeepSTARR models from scratch with [EUGENe] (`eugene/`)
+ - Evaluating Bernardo's DeepSTARR model (`deepstarr/`)
+ - Distance dependent cooperativity analysis with a model trained using the evoaug codebase (`evoaug/`)
 
 ## Acknowledgements
 ---
@@ -28,11 +12,7 @@ Coming soon!
 
 ## TODO
 ---
-- [ ] Train new DeepSTARR model with EUGENe update
-- [ ] Run inference on test set with Zenodo model
-- [ ] Run inference on test set with Kipoi model
-- [ ] Notebook comparing inference results
-- [ ] Attributions across models
+- [ ] Revisit this README and make it more informative
 
 ## Citations
 ---
