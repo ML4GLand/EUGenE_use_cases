@@ -1,7 +1,7 @@
-# BPNet
+# DeepSTARR
 ---
 Code to work with DeepSTARR models. This includes:
- - Training and interpreting BPNet models from scratch with [EUGENe].
+ - Training and interpreting DeepSTARR models from scratch with [EUGENe].
  - Testing the Kipoi DeepSTARR model
  - Testing Bernardo's DeepSTARR model in keras
 
@@ -11,8 +11,8 @@ Follow the instructions in the `setup.ipynb` notebook to configure computational
 
 ## Usage
 ---
-1. Testing
- - See the `test_inference*.ipynb` notebooks for examples of how to use the pretrained models for inference. TODO!
+1. Training and interpreting DeepSTARR models from scratch with [EUGENe].
+ - See the `eugene` directory for details
 
 2. Training
  - See the `train_*.ipynb` notebooks for examples of how to train models from scratch
