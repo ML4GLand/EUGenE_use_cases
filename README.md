@@ -1,49 +1,8 @@
 # Use cases
+This repository contains attmepts to reproduce foundational research in machine learning for genomics using EUGENe and other ML4G tools. It also lends itself nicely for aggregating interesting analyses and visualizations of data that extend beyond the scope of the original research. We hope to encourage others to contribute their own use cases and analyses to this repository.
 
-This repository contains individual folders that represent an attempt reproduce foundational research in machine learning for genomics.
+# Contributing
+We will be setting up more formal contribution guidelines in the future. For now, we are accepting many different forms of contribution. Please feel free to submit a pull request with your use case. You can fork the repo, and add your own analysis or use case
 
-## Protein binding prediction
-
-### RNA binding prediction (`alipanahi15`)
-
-```bash
-Alipanahi, B., Delong, A., Weirauch, M. T. & Frey, B. J. Predicting the sequence specificities of DNA- and RNA-binding proteins by deep learning. Nat. Biotechnol. 33, 831–838 (2015)
-```
-
-### JunD binding prediction (`kopp21`)
-
-```bash
-Kopp, W., Monti, R., Tamburrini, A., Ohler, U. & Akalin, A. Deep learning for genomics using Janggu. Nat. Commun. 11, 3488 (2020)
-```
-
-## Epignenomic feature classification 
-
-### The variant effect predictory from the ocean (`zhou15`)
-
-### You ain't nothing but a hound dog (`kelley16`)
-
-## Epigenomic track prediction
-
-### Basset has a brother (`kelley18`)
-
-## Base pair resolution prediction
-
-### BPNet (`avsec21`)
-
-### chromBPNet
-
-## MPRA activity prediction
-
-### Synthetic and genomic pluripotency enhancers (`king20`)
-
-### Plant promoter prediction (`jores21`)
-
-### Enhancer activity from STARR-seq in flies (`deAlmeida22`)
-
-### Hundreds of thousands of random promoter elements ('voNgoc20`)
-
-### Millions of random yeast promoters (`deBoer20`)
-
-## scATAC-seq topic classification
-
-### Fly eye enhancer synthesis (`taskarin22`)
+# TODO
+- [ ] Create a script to run that generates all the files for a new use case that someone can use to get started with a new ones

@@ -1,0 +1,45 @@
+arch: Hybrid
+conv_kwargs:
+  activations: relu
+  batchnorm: true
+  conv_channels:
+  - 256
+  - 256
+  - 256
+  conv_kernels:
+  - 13
+  - 13
+  - 13
+  dropout_rates: 0.3
+  pool_kernels:
+  - 2
+  - 2
+  - 2
+  pool_strides:
+  - 2
+  - 2
+  - 2
+dense_kwargs:
+  batchnorm: true
+  dropout_rates: 0.2
+  hidden_dims:
+  - 64
+input_len: 170
+loss_fxn: mse
+metric: null
+metric_kwargs: null
+name: grace
+optimizer: adam
+optimizer_kwargs: {}
+optimizer_lr: 0.001
+output_dim: 1
+recurrent_kwargs:
+  batch_first: true
+  hidden_dim: 128
+save_hyperparams: true
+scheduler: reduce_lr_on_plateau
+scheduler_kwargs:
+  patience: 2
+scheduler_monitor: val_loss_epoch
+seed: null
+task: regression
