@@ -1,8 +1,7 @@
 # DeepMEL
 ---
 Code to work with DeepMEL models. This includes:
- - Training and interpreting BPNet models from scratch with [EUGENe].
- - Testing the Kipoi DeepMEL and DeepMEL2 models
+ - Training, evaluating, and interpreting DeepMEL models
 
 ## Install
 ---
@@ -10,15 +9,13 @@ Follow the instructions in the `setup.ipynb` notebook to configure computational
 
 ## Usage
 ---
-1. Testing
- - See the `test_inference*.ipynb` notebooks for examples of how to use the pretrained models for inference. TODO!
-
-2. Training
- - See the `train_*.ipynb` notebooks for examples of how to train models from scratch
- 
-## Model interpretation
----
-Coming soon!
+1. Consensus peak calling (optional) -- you can also skip this step if you just want to use CellRanger called peaks
+2. pycisTopic analysis -- check out the https://github.com/IGVF-UCSD/cistopic_pipeline for a more thoroughly defined pipeline for running cisTopic (especially if you have big datasets)
+3. Convert pycisTopic objects to training inputs
+4. Build SeqData objects for training
+5. Train DeepMEL models
+6. Evaluate DeepMEL models
+7. Interpret DeepMEL models
 
 ## Acknowledgements
 ---
@@ -27,8 +24,7 @@ Coming soon!
 
 ## TODO
 ---
-- [ ] Prep data for PBMC 3k as example
-- [ ] Train DeepMEL model on PBMC 3k as example
+- [ ] Add more documentation
 - [ ]
 
 ## Citations

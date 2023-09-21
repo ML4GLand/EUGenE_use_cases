@@ -7,12 +7,8 @@ import argparse
 import logging
 import os
 import pickle
-import sys
-
 import pandas as pd
 from scipy import io
-
-sys.path.append("/cellar/users/aklie/projects/ML4GLand/collabs/er_stress_regulation")
 from pycisTopic.cistopic_class import create_cistopic_object
 from utils import load_cisTopic_model
 
