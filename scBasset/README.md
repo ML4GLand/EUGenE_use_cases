@@ -14,7 +14,8 @@ Follow the instructions in the `setup.ipynb` notebook to configure computational
 scBasset is a framework that can be applied to any scATAC-seq dataset. We have chosen a few particular datasets:
 - PBMC 3k multiome
 - Buenrostro 2018
-You can find numerically ordered notebooks in this directory for running the steps necessary to preprocess and train scBasset models on these datasets.
+
+You can find numerically ordered notebooks in these subdirectories for running the steps necessary to preprocess and train scBasset models on these datasets.
  
 2. Benchmarking scBasset models
 Coming soon!
