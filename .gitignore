@@ -6,6 +6,8 @@
 **/model/
 **/models/
 **/processed/
+**/analysis/
+**/slurm_logs/
 archive/
 
 # use cases to ignore
