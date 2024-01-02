@@ -1,10 +1,75 @@
-import numpy as np
+from os import PathLike
+from typing import List, Optional
+import os
+import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 from scipy.stats import gaussian_kde
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, roc_curve, precision_recall_curve
 from scipy.stats import pearsonr, spearmanr
 
+
+def training_summary(
+    log_path: PathLike,
+    metrics: List[str] = ["r2score"],
+    logger: Optional[str] = "tensorboard",
+    figsize: Optional[tuple] = (12, 6),
+    save: Optional[str] = None,
+    return_axes: Optional[bool] = False,
+    **kwargs,
+) -> None:
+    if logger == "csv":
+        metrics_df = pd.read_csv(os.path.join(log_path, "metrics.csv"))
+        if "step" in metrics_df.columns:
+            metrics_df = metrics_df.set_index("step")
+            
+        _, ax = plt.subplots(1, 2, figsize=figsize)
+
+        if "train_loss" in metrics_df.columns:
+            train_loss_step = metrics_df["train_loss"].dropna()
+            ax[0].plot(train_loss_step, label="train_loss_step")
+
+        if "train_loss_epoch" in metrics_df.columns:
+            train_loss_epoch = metrics_df["train_loss_epoch"].dropna()
+            ax[0].plot(train_loss_epoch, label="train_loss_epoch")
+
+        if "val_loss_epoch" in metrics_df.columns:
+            val_loss_epoch = metrics_df["val_loss_epoch"].dropna()
+            ax[0].plot(val_loss_epoch, label="val_loss_epoch")
+
+        for metric in metrics:
+            if f"val_{metric}_epoch" in metrics_df.columns:
+                train_metric_epoch = metrics_df[f"train_{metric}_epoch"].dropna().reset_index(drop=True)
+                ax[1].plot(train_metric_epoch, label=f"train_{metric}_epoch")
+
+            if f"val_{metric}_epoch" in metrics_df.columns:
+                val_metric_epoch = metrics_df[f"val_{metric}_epoch"].dropna().reset_index(drop=True)
+                ax[1].plot(val_metric_epoch, label=f"val_{metric}_epoch")
+
+        # Add labels
+        ax[0].legend()
+        ax[0].set_xlabel("Step")
+        ax[0].set_ylabel("Loss")
+        ax[1].legend()
+        ax[1].set_xlabel("Epoch")
+        ax[1].set_ylabel(metric)
+
+    elif logger == "tensorboard":
+        raise NotImplementedError("Tensorboard not implemented yet")
+    
+    else:
+        raise ValueError(f"Invalid logger: {logger}")
+    
+    if save:
+        plt.savefig(save)
+        plt.close()
+    else:
+        plt.show()
+
+    if return_axes:
+        return ax
+    
 
 def scatter(
     x,
@@ -20,6 +85,7 @@ def scatter(
     save=None,
     add_reference_line=True,
     rasterized=False,
+    return_axes=False,
 ):
     # Set up the axes
     if ax is None:
@@ -69,3 +135,6 @@ def scatter(
         plt.close()
     else:
         plt.show()
+
+    if return_axes:
+        return ax

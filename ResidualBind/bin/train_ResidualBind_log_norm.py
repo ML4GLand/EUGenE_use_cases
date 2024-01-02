@@ -7,11 +7,10 @@ import xarray as xr
 from eugene import models
 from eugene.models import zoo
 from eugene import train
-from eugene import preprocess as pp
 
 
 # Model log directory
-log_dir = "/cellar/users/aklie/projects/ML4GLand/use_cases/ResidualBind/models/2023_12_16/ResidualBind/log_norm"
+log_dir = "/cellar/users/aklie/projects/ML4GLand/use_cases/ResidualBind/models/2024_01_02/ResidualBind/log_norm"
 
 # Load the dataset
 sdata_train = sd.open_zarr("/cellar/users/aklie/data/ml4gland/pubs/koo21_gia/log_norm/rnacompete2013_train.zarr")
@@ -22,32 +21,32 @@ sdata = xr.concat([sdata_train, sdata_valid], dim="_sequence", data_vars="minima
 sdata["ohe_seq"] = sdata["inputs"]
 sdata.load()
 
-# Instantiate an architecture
-arch = zoo.ResidualBind(
-    input_len=41,
-    output_dim=1
-)
-
-# Initialize the weights
-models.init_weights(arch)
-
-# Instantiate a sequence module
-module = models.SequenceModule(
-    arch=arch,
-    task="regression",
-    loss_fxn="mse",
-    optimizer_lr=0.001,
-    scheduler="reduce_lr_on_plateau",
-    scheduler_monitor="val_pearson_epoch",
-    metric="pearson",
-    seed=1234,
-)
-
 # Loop through and train each model
 for index in range(sdata.dims["_target"]):
     sdata["target"] = sdata["targets"][:, index]
     rbp_id = sdata["rbp_id"].values[index]
     print("Training", rbp_id)
+
+    # Instantiate an architecture
+    arch = zoo.ResidualBind(
+        input_len=41,
+        output_dim=1
+    )
+
+    # Initialize the weights
+    models.init_weights(arch)
+
+    # Instantiate a sequence module
+    module = models.SequenceModule(
+        arch=arch,
+        task="regression",
+        loss_fxn="mse",
+        optimizer_lr=0.001,
+        scheduler="reduce_lr_on_plateau",
+        scheduler_monitor="val_pearson_epoch",
+        metric="pearson",
+        seed=1234,
+    )
 
     # Grab the training data for this RBP
     sdata_training = sdata.sel(_sequence=sdata["target"].notnull()).copy()
@@ -82,3 +81,10 @@ for index in range(sdata.dims["_target"]):
     best_model_path = trainer.checkpoint_callback.best_model_path
     copy_path = os.path.join(log_dir, rbp_id, "best_model.ckpt")
     os.system(f"cp {best_model_path} {copy_path}")
+
+    # Clean up
+    del module
+    del trainer
+    del sdata_training
+    del arch
+    

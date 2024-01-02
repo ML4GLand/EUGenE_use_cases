@@ -10,12 +10,6 @@
 **/slurm_logs/
 archive/
 
-# use cases to ignore
-plant_enhancer_syntax/
-er_stress_regulation/
-tcr_duality/
-stamp_bpnet/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

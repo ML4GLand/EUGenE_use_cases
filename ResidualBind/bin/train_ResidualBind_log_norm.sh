@@ -4,12 +4,12 @@
 #SBATCH --gpus=1
 #SBATCH --output=/cellar/users/aklie/projects/ML4GLand/use_cases/ResidualBind/bin/slurm_logs/%x.%A.out
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=8G
+#SBATCH --mem-per-cpu=16G
 #SBATCH --time=14-00:00:00
 
 #####
 # USAGE: 
-# sbatch --job-name=train_ResidualBind_log_norm train_ResidualBind_log_norm.sh
+# sbatch --job-name=train_ResidualBind_log_norm_2023_01_02 train_ResidualBind_log_norm.sh
 #####
 
 # Date
