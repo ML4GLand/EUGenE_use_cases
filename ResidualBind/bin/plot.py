@@ -3,6 +3,7 @@ from typing import List, Optional
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 import numpy as np
 
 from scipy.stats import gaussian_kde
@@ -138,3 +139,45 @@ def scatter(
 
     if return_axes:
         return ax
+
+
+def boxplots(
+    data: list,
+    names: list,
+    save: Optional[str] = None,
+):
+    fig = plt.figure(figsize=(3+len(names),5))
+    vplot = plt.violinplot(
+        data, 
+        showextrema=False
+    )
+
+    cmap = cm.ScalarMappable(cmap='tab10')
+    test_mean = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+        
+    for patch, color in zip(vplot['bodies'], cmap.to_rgba(test_mean)):
+        patch.set_facecolor(color)
+        patch.set_edgecolor('black')
+        
+    medianprops = dict(color="red",linewidth=2)
+        
+    bplot = plt.boxplot(data, 
+                        notch=True, patch_artist=True, 
+                        widths=0.2,
+                        medianprops=medianprops)
+
+    for patch, color in zip(bplot['boxes'], cmap.to_rgba(test_mean)):
+        patch.set_facecolor(color)
+        patch.set_edgecolor('black')
+        
+    plt.xticks(range(1, len(names)+1), names, rotation=40, fontsize=14, ha='right');
+    ax = plt.gca()
+    plt.setp(ax.get_yticklabels(),fontsize=14)
+    plt.ylabel('Pearson correlation', fontsize=14)
+
+    if save:
+        plt.savefig(save, dpi=300, bbox_inches='tight')
+        plt.close()
+    else:
+        plt.show()
+        

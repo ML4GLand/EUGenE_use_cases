@@ -9,7 +9,7 @@
 
 #####
 # USAGE: 
-# sbatch --job-name=train_ResidualBind_log_norm_2023_01_02 train_ResidualBind_log_norm.sh
+# sbatch --job-name=train_ResidualBind_log_norm_2024_01_03 train_ResidualBind_log_norm.sh
 #####
 
 # Date
@@ -18,7 +18,7 @@ echo -e "Job ID: $SLURM_JOB_ID\n"
 
 # Configuring env (choose either singularity or conda)
 source activate ml4gland
-script_path=/cellar/users/aklie/projects/ML4GLand/use_cases/ResidualBind/bin/train_ResidualBind_log_norm.py
+script_path=/cellar/users/aklie/projects/ML4GLand/use_cases/ResidualBind/bin/train_ResidualBind_log_norm_v2.py
 
 # Run script
 cmd="python $script_path"

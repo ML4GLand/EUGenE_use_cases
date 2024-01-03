@@ -1,5 +1,6 @@
 import numpy as np
 import h5py
+import xarray as xr
 
 
 def prepare_data(train, ss_type=None):
@@ -20,6 +21,7 @@ def prepare_data(train, ss_type=None):
 
         train['inputs']  = seq
         return train
+
 
 def normalize_data(data, normalization):
     if normalization == 'clip_norm':
@@ -42,6 +44,7 @@ def normalize_data(data, normalization):
         data_norm = (data-mu)/sigma
         params = [MIN, mu, sigma]
     return data_norm, params
+
 
 def load_rnacompete_data(file_path, ss_type='seq', normalization='log_norm', rbp_index=None, dataset_name=None):
 
@@ -98,12 +101,29 @@ def load_rnacompete_data(file_path, ss_type='seq', normalization='log_norm', rbp
 
     return train, valid, test
 
+
 def get_experiment_names(file_path):
     """Get the name of a given RNAcompete experiment"""
     dataset = h5py.File(file_path, 'r')
     return [i.decode('UTF-8') for i in np.array(dataset['experiment'])]
 
+
 def find_experiment_index(data_path, experiment):
     """Find the index for a given RNAcompete experiment"""
     experiments = get_experiment_names(data_path)
     return experiments.index(experiment)
+
+
+def build_seqdata(dataset):
+    """Build a sequence dataset from a dataeset dictionary"""
+    ohe_seqs = dataset["inputs"]
+    targets = dataset["targets"].squeeze()
+    nan_index = np.where(np.isnan(targets))
+    print(f"Removing {len(nan_index[0])} sequences with NaN targets")
+    ohe_seqs = np.delete(ohe_seqs, nan_index, axis=0)
+    targets = np.delete(targets, nan_index, axis=0)    
+    sdata = xr.Dataset({
+        "ohe_seq": xr.DataArray(ohe_seqs, dims=("_sequence", "_length", "_ohe")),
+        "target": xr.DataArray(targets, dims=("_sequence")),
+    })
+    return sdata
